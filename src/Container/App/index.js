@@ -1,13 +1,31 @@
 import React, { Component } from 'react';
+import View from './View';
+import Loading from './Loading';
 
-class App extends Component {
+import loadData from './loadData';
+
+export default class extends Component {
+  state = {
+    data: null,
+    loading: true
+  }
+
+  async load(query) {
+    try {
+      const data = await loadData(query);
+      this.setState({ loading: false, data });
+    } catch(error) {
+      console.log(error);
+    }
+  }
+
+  componentDidMount() {
+    this.load('athlete');
+  }
+
   render() {
     return (
-      <div className="App">
-      asdasdsa
-      </div>
+      this.state.loading ? <Loading /> : <View {...this.state} />
     );
   }
 }
-
-export default App;

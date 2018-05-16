@@ -20,7 +20,7 @@ export default class extends Component {
   }
 
   componentDidMount() {
-    this.load('athlete');
+    this.load('activities');
   }
 
   render() {

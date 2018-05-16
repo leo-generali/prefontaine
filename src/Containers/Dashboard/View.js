@@ -1,8 +1,7 @@
 import React from 'react';
-import Dashboard from '../Dashboard';
 
 const View = ({ data }) => (
-  <Dashboard />
+  <div>Dashboard View</div>
 );
 
 export default View;

@@ -35,12 +35,12 @@ const H5 = styled.h5`
 
 const H6 = styled.h6`
   ${textStyle}
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 `;
 
 const Span = styled.span`
   ${textStyle}
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   line-height: 1.6;
 `;
 

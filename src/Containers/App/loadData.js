@@ -17,7 +17,7 @@ const requestOptions = {
 };
 
 const getStartingDateOfCurrentWeek = () => {
-  const currentDay = new Date; // get current date
+  const currentDay = new Date(); // get current date
   const first = currentDay.getDate() - currentDay.getDay(); // First day is the day of the month - the day of the week
   const firstDay = new Date(currentDay.setDate(first)).setHours(0,0,0,0);
   return ( Math.round(firstDay / 1000) );
@@ -27,7 +27,7 @@ const loadData = (query) => {
   const date = getStartingDateOfCurrentWeek();
   const url = `${stravaPath[query]}?after=${date}`;
   return fetch(url, requestOptions)
-    .then(getObjectFromJson)
+    .then(getObjectFromJson);
 };
 
 export default loadData;

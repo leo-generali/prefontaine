@@ -1,7 +1,7 @@
 import React from 'react';
 
 const View = ({ data }) => (
-  <div></div>
+  <div>asdasd</div>
 );
 
 export default View;

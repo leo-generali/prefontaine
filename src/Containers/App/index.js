@@ -25,7 +25,8 @@ export default class extends Component {
 
   render() {
     return (
-      this.state.loading ? <Loading /> : <View {...this.state} />
+      <Loading />
+      // this.state.loading ? <Loading /> : <View {...this.state} />
     );
   }
 }

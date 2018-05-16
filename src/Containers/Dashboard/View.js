@@ -1,7 +1,8 @@
 import React from 'react';
+import * as Text from '../../styles/typography';
 
 const View = ({ data }) => (
-  <div>Dashboard View</div>
+  <Text.Span light>Dashboard View</Text.Span>
 );
 
 export default View;

@@ -2,7 +2,7 @@ import React from 'react';
 import Dashboard from '../Dashboard';
 
 const View = ({ data }) => (
-  <Dashboard />
+  <Dashboard data={ data }/>
 );
 
 export default View;

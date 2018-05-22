@@ -26,10 +26,11 @@ const getStartingDateOfCurrentWeek = () => {
 };
 
 const loadData = (query) => {
-  const date = getStartingDateOfCurrentWeek();
-  const url = `${stravaPath[query]}?after=${date}`;
+  // const date = getStartingDateOfCurrentWeek();
+  // const url = `${stravaPath[query]}?after=${date}`;
+  const url = `${stravaPath[query]}`;
   if(process.env.NODE_ENV === 'development') {
-    return activities
+    return activities;
   } else {
     return fetch(url, requestOptions)
       .then(getObjectFromJson);

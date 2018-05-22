@@ -1,8 +1,8 @@
 import React from 'react';
-import * as Text from '../../styles/typography';
+import Graph from '../../Components/Graph'
 
-const View = ({ data }) => (
-  <Text.Span light>Dashboard View</Text.Span>
+const View = ({ runActivities }) => (
+  <Graph runActivities={runActivities} />
 );
 
 export default View;

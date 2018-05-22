@@ -44,6 +44,11 @@ const Span = styled.span`
   line-height: 1.6;
 `;
 
+const P = styled.p`
+  display: block;
+  ${textStyle}
+  font-size: 1.7rem;
+  line-height: 1.6;
+`;
 
-
-export { H1, H2, H3, H4, H5, H6, Span };
+export { H1, H2, H3, H4, H5, H6, Span, P };

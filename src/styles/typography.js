@@ -4,13 +4,14 @@ import { typographyColor } from './colors';
 const textStyle = css`
   font-weight: 400;
   color: ${props => props.light ? typographyColor.light : typographyColor.dark};
-  text-transform: ${props => props.uppercase ? 'Uppercase' : ''};
+  text-transform: ${props => props.uppercase ? 'Uppercase' : null};
   letter-spacing: ${props => props.uppercase ? '0.3rem' : '0.05rem'};
 `;
 
 const H1 = styled.h1`
   ${textStyle}
   font-size: 3.4rem;
+  font-size: ${props => props.small ? '60%' : null};
 `;
 
 const H2 = styled.h2`

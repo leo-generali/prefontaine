@@ -2,9 +2,11 @@ import React from 'react';
 import Bar from './Bar';
 import Chart from './Chart';
 
+import { DAYS_OF_WEEK_SHORT } from '../Graph/constants';
+
 const BarChart = ({ data }) => {
-  const itemWidth = 30;
-  const itemMargin = 15;
+  const itemWidth = 40;
+  const itemMargin = 20;
   const length = data.length;
 
   const mostMileage = data.reduce((acc, cur) => {
@@ -12,8 +14,10 @@ const BarChart = ({ data }) => {
     return distance > acc ? distance : acc;
   }, 0);
 
-  const maxHeight = 200;
-  const decrease = mostMileage - maxHeight;
+  const chartHeight = 215;
+  const rectHeight = 200;
+
+  const decrease = mostMileage - rectHeight;
   const percent = (100 - (decrease / mostMileage * 100)) / 100;
 
   const massagedData = data.map(activity =>
@@ -25,22 +29,29 @@ const BarChart = ({ data }) => {
     )
   );
 
-  const chartHeight = maxHeight;
-  const chartWidth = length * (itemWidth + itemMargin);
+  const chartWidth = (length * (itemWidth + itemMargin)) - itemMargin;
 
   return (
     <Chart width={chartWidth} height={chartHeight} >
       {massagedData.map((activity, index) => {
         const itemHeight = activity.height;
-        const barYAxis = chartHeight - itemHeight;
+        const barYAxis = rectHeight - itemHeight;
+
+        const options = {
+          x: index * (itemWidth + itemMargin),
+          y: barYAxis ? barYAxis : 0,
+          width: itemWidth,
+          height: itemHeight ? itemHeight : 0,
+          rx: 0,
+          ry: 0,
+          base: chartHeight,
+          distance: activity.distance,
+          day: DAYS_OF_WEEK_SHORT[activity['date'].getDay()],
+          date: `${activity['date'].getMonth()}/${activity['date'].getDate()}`
+        };
+
         return (
-          <Bar
-            key={activity.name}
-            x={index * (itemWidth + itemMargin)}
-            y={barYAxis ? barYAxis : 0}
-            width={itemWidth}
-            height={itemHeight ? itemHeight : 0}
-          />
+          <Bar key={index} options={options} />
         );
       })}
     </Chart>

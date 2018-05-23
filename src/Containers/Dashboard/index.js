@@ -8,9 +8,7 @@ export default class extends Component {
     const runActivities = getRunActivities(this.props.data);
 
     return (
-      <View
-        runActivities={runActivities}
-      />
+      <View runActivities={runActivities}/>
     );
   }
 }

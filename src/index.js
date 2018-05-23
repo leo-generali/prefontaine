@@ -5,7 +5,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 import { injectGlobal } from 'styled-components';
 import reset from './styles/reset';
-
 injectGlobal`
   ${reset}
 `;

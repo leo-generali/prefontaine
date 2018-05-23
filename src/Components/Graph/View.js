@@ -1,8 +1,12 @@
 import React from 'react';
-import Activity from '../../Components/Activity'
+import BarChart from '../BarChart'
 
-const View = ({ array }) => (
-  <p>asd</p>
-);
+const View = ({ array }) => {
+  const hasData = Boolean(array);
+
+  return (
+    hasData ? <BarChart data={array} /> : null
+  );
+}
 
 export default View;

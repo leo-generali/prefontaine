@@ -3,6 +3,7 @@ import View from './View';
 
 import { createArray } from './helpers';
 
+// <View {...this.state} {...this.props} />
 export default class extends Component {
   componentDidMount() {
     this.setState({
@@ -12,7 +13,7 @@ export default class extends Component {
 
   render() {
     return (
-      <View {...this.state} {...this.props} />
+      <View {...this.state} />
     );
   }
 }

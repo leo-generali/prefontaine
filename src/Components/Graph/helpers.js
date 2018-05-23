@@ -15,13 +15,6 @@ const getDay = (day) => {
 const createArray = (runActivities) => {
   const days = [];
   const currentDay = process.env.NODE_ENV === 'development' ? new Date(runActivities[0]['start_date']) : new Date();
-  // if(process.env.NODE_ENV === 'development') {
-  //   return activities;
-  // } else {
-  //   return fetch(url, requestOptions)
-  //     .then(getObjectFromJson);
-  // }
-  // const currentDay = new Date();
   for(let i = 0; i < 7; i++) {
     const dateInMilliseconds = getDay(currentDay - (i * DAY_IN_MILLI));
     const pastDate = new Date(dateInMilliseconds);

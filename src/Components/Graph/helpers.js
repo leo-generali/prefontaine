@@ -2,9 +2,9 @@ import { DAY_IN_MILLI } from './constants';
 
 const isSameDate = (dateOne, dateTwo) => {
   return (
-    dateOne.getFullYear() === dateTwo.getFullYear() &&
-    dateOne.getMonth() === dateTwo.getMonth() &&
-    dateOne.getDate() === dateTwo.getDate()
+    dateOne.getUTCFullYear() === dateTwo.getUTCFullYear() &&
+    dateOne.getUTCMonth() === dateTwo.getUTCMonth() &&
+    dateOne.getUTCDate() === dateTwo.getUTCDate()
   );
 }
 
@@ -14,7 +14,8 @@ const getDay = (day) => {
 
 const createArray = (runActivities) => {
   const days = [];
-  const currentDay = process.env.NODE_ENV === 'development' ? new Date(runActivities[0]['start_date']) : new Date();
+  const currentDay = new Date(runActivities[0]['start_date']);
+  console.log(currentDay);
 
   for(let i = 6; i > -1; i--) {
     const dateInMilliseconds = getDay(currentDay - (i * DAY_IN_MILLI));

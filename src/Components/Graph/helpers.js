@@ -2,9 +2,9 @@ import { DAY_IN_MILLI } from './constants';
 
 const isSameDate = (dateOne, dateTwo) => {
   return (
-    dateOne.getUTCFullYear() === dateTwo.getUTCFullYear() &&
-    dateOne.getUTCMonth() === dateTwo.getUTCMonth() &&
-    dateOne.getUTCDate() === dateTwo.getUTCDate()
+    dateOne.getFullYear() === dateTwo.getFullYear() &&
+    dateOne.getMonth() === dateTwo.getMonth() &&
+    dateOne.getDate() === dateTwo.getDate()
   );
 }
 

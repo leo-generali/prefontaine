@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import View from './View';
-import Loading from './Loading';
 
 import loadData from './loadData';
 
@@ -25,7 +24,7 @@ export default class extends Component {
 
   render() {
     return (
-      this.state.loading ? <Loading /> : <View {...this.state} />
+      <View {...this.state} />
     );
   }
 }

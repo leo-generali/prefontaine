@@ -37,21 +37,21 @@ const BarChart = ({ data }) => {
         const itemHeight = activity.height;
         const barYAxis = rectHeight - itemHeight;
 
-        const options = {
-          x: index * (itemWidth + itemMargin),
-          y: barYAxis ? barYAxis : 0,
-          width: itemWidth,
-          height: itemHeight ? itemHeight : 0,
-          rx: 0,
-          ry: 0,
-          base: chartHeight,
-          distance: activity.distance,
-          day: DAYS_OF_WEEK_SHORT[activity['date'].getDay()],
-          date: `${activity['date'].getMonth()}/${activity['date'].getDate()}`
-        };
-
         return (
-          <Bar key={index} options={options} />
+          <Bar
+            index={index}
+            key={index} 
+            x={index * (itemWidth + itemMargin)}
+            y={barYAxis ? barYAxis : 0}
+            width={itemWidth}
+            height={itemHeight ? itemHeight : 0}
+            rx={0}
+            ry={0}
+            base={chartHeight}
+            distance={activity.distance}
+            day={DAYS_OF_WEEK_SHORT[activity['date'].getDay()]}
+            date={`${activity['date'].getMonth()}/${activity['date'].getDate()}`}
+          />
         );
       })}
     </Chart>

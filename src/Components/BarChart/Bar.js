@@ -19,27 +19,41 @@ class Bar extends Component {
   };
 
   render() {
-    const { options } = this.props;
     const { displayMileage } = this.state;
 
     return (
       <g>
         <rect
-          x={options.x}
-          y={options.y}
-          width={options.width}
-          height={options.height}
+          id={`rect-${this.props.index}`}
+          x={this.props.x}
+          y={this.props.y}
+          width={this.props.width}
+          height={this.props.height}
           fill="url(#linear)"
-          rx={options.rx}
-          ry={options.ry}
+          rx={this.props.rx}
+          ry={this.props.ry}
           onMouseEnter={() => this.setState({displayMileage: true})}
           onMouseLeave={() => this.setState({displayMileage: false})}
-        />
-        <text x={options.x + options.width/2 } y={options.base} textAnchor="middle">
-          {options.day}
+        >
+          <animate
+            attributeName="y"
+            from={200}
+            to={this.props.y}
+            dur="1s"
+            fill="freeze"
+          />
+          <animate
+            attributeName="height"
+            from={0}
+            to={this.props.height}
+            dur="1s" fill="freeze"
+          />
+        </rect>
+        <text x={this.props.x + this.props.width/2 } y={this.props.base} textAnchor="middle">
+          {this.props.day}
         </text>
-        <text x={options.x + options.width/2 } y={options.base - 22} textAnchor="middle" fill={this.setColor(options.height)}>
-          {displayMileage ? this.convertDistance(options.distance) : options.date}
+        <text x={this.props.x + this.props.width/2 } y={this.props.base - 22} textAnchor="middle" fill={this.setColor(this.props.height)}>
+          {displayMileage ? this.convertDistance(this.props.distance) : this.props.date}
         </text>
       </g>
     );

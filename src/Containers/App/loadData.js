@@ -1,4 +1,5 @@
 import activities from '../../data/activities';
+import athlete from '../../data/athlete';
 
 const key = process.env.REACT_APP_STRAVA_ACCESS_TOKEN;
 const athleteId = process.env.REACT_APP_MY_ATHLETE_ID;
@@ -29,8 +30,16 @@ const loadData = (query) => {
   // const date = getStartingDateOfCurrentWeek();
   // const url = `${stravaPath[query]}?after=${date}`;
   const url = `${stravaPath[query]}`;
-  if(process.env.NODE_ENV !== 'development') {
-    return activities;
+
+  if(process.env.NODE_ENV === 'development') {
+    switch (query) {
+      case 'activities':
+        return activities;
+        break;
+      case 'athlete':
+        return athlete;
+        break;
+    }
   } else {
     return fetch(url, requestOptions)
       .then(getObjectFromJson);

@@ -8,6 +8,7 @@ import styled from 'styled-components';
 const ProfileWrapper = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 2rem;
 `;
 
 const ImageWrapper = styled.div`
@@ -17,13 +18,22 @@ const ImageWrapper = styled.div`
 `;
 
 const IconWrapper = styled.a`
-  background: orange;
+  border-radius: 0.6rem;
+  background-color: #fc4c02;
+  margin-left: auto;
   max-width: 5rem;
   max-height: 5rem;
+  transition: 0.3s;
+
+  :hover {
+    background-color: #e24401;
+    transform: translateY(-0.2rem);
+    box-shadow: 0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08);
+  }
 `;
 
 const Image = styled.img`
-  border-radius: 10%;
+  border-radius: 0.6rem;
   height: 100%;
   width: 100%;
 `;
@@ -35,7 +45,7 @@ const View = ({ profile, url, firstname }) => {
       <ImageWrapper>
         <Image src={profile} alt={`${firstname}'s Strava Profile Picture`}></Image>
       </ImageWrapper>
-      <IconWrapper>
+      <IconWrapper href={url} target='_blank'>
         <Icon logo='strava' height={'100%'} width={'100%'} />
       </IconWrapper>
     </ProfileWrapper>

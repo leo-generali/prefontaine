@@ -15,7 +15,6 @@ const getDay = (day) => {
 const createArray = (runActivities) => {
   const days = [];
   const currentDay = new Date(runActivities[0]['start_date']);
-  console.log(currentDay);
 
   for(let i = 6; i > -1; i--) {
     const dateInMilliseconds = getDay(currentDay - (i * DAY_IN_MILLI));
@@ -26,7 +25,7 @@ const createArray = (runActivities) => {
       const activityDate = new Date(runActivities[x]['start_date']);
 
       if(isSameDate(activityDate, pastDate)) {
-        object['name'] = runActivities[x]['name'];
+        // object['name'] = runActivities[x]['name'];
         object['distance'] = runActivities[x]['distance'] += runActivities[x]['distance'];
       }
     }

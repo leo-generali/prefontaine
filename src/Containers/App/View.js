@@ -15,7 +15,7 @@ const AppContainer = styled.div`
 `;
 
 const GraphContainer = styled.div`
-  background-color: rgb(244,237,242, 0.85);
+  background-color: rgba(244,237,242, 0.85);
   box-shadow: 0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08);
   border-radius: 0.5rem;
   padding: 4rem 5rem;
@@ -25,10 +25,10 @@ function finishedLoading(data, personalData) {
   const { id, firstname, profile } = personalData;
 
   return (
-    <div>
+    <React.Fragment>
       <UserInfo id={id} firstname={firstname} profile={profile} />
       <Dashboard data={data}/>
-    </div>
+    </React.Fragment>
   );
 };
 

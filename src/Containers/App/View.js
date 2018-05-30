@@ -1,5 +1,6 @@
 import React from 'react';
 import Dashboard from '../Dashboard';
+import UserInfo from '../../Components/UserInfo';
 import Loading from './Loading';
 
 // Styles
@@ -20,12 +21,26 @@ const GraphContainer = styled.div`
   padding: 4rem 5rem;
 `;
 
-const View = ({ data, loading }) => (
-  <AppContainer>
-    <GraphContainer>
-      {loading ? <Loading /> : <Dashboard data={data}/>}
-    </GraphContainer>
-  </AppContainer>
-);
+function finishedLoading(data, personalData) {
+  const { id, firstname, profile } = personalData;
+
+  return (
+    <div>
+      <UserInfo id={id} firstname={firstname} profile={profile} />
+      <Dashboard data={data}/>
+    </div>
+  );
+};
+
+const View = ({ loading, data, personalData }) => {
+
+  return (
+    <AppContainer>
+      <GraphContainer>
+        {loading ? <Loading /> : finishedLoading(data, personalData)}
+      </GraphContainer>
+    </AppContainer>
+  );
+};
 
 export default View;

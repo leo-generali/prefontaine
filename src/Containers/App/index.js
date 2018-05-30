@@ -6,20 +6,22 @@ import loadData from './loadData';
 export default class extends Component {
   state = {
     data: null,
+    personalData: null,
     loading: true
   }
 
-  async load(query) {
+  async load() {
     try {
-      const data = await loadData(query);
-      this.setState({ loading: false, data });
+      const data = await loadData('activities');
+      const personalData = await loadData('athlete');
+      this.setState({ loading: false, data, personalData });
     } catch(error) {
       console.log(error);
     }
   }
 
   componentDidMount() {
-    this.load('activities');
+    this.load();
   }
 
   render() {

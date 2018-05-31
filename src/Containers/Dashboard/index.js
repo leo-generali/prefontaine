@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import View from './View';
-import Loading from '../App/Loading';
 
 import { getRunActivities } from "./helpers";
 

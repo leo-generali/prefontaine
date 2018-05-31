@@ -26,20 +26,18 @@ const getStartingDateOfCurrentWeek = () => {
   return ( Math.round(firstDay / 1000) );
 };
 
+const devData = {
+  activities: activities,
+  athlete: athlete
+};
+
 const loadData = (query) => {
   // const date = getStartingDateOfCurrentWeek();
   // const url = `${stravaPath[query]}?after=${date}`;
   const url = `${stravaPath[query]}`;
 
   if(process.env.NODE_ENV === 'development') {
-    switch (query) {
-      case 'activities':
-        return activities;
-        break;
-      case 'athlete':
-        return athlete;
-        break;
-    }
+    return devData[query];
   } else {
     return fetch(url, requestOptions)
       .then(getObjectFromJson);

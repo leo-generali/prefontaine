@@ -40,7 +40,7 @@ const BarChart = ({ data }) => {
         return (
           <Bar
             index={index}
-            key={index} 
+            key={index}
             x={index * (itemWidth + itemMargin)}
             y={barYAxis ? barYAxis : 0}
             width={itemWidth}

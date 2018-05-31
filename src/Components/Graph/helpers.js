@@ -19,16 +19,21 @@ const createArray = (runActivities) => {
   for(let i = 6; i > -1; i--) {
     const dateInMilliseconds = getDay(currentDay - (i * DAY_IN_MILLI));
     const pastDate = new Date(dateInMilliseconds);
-    const object = { date: pastDate };
 
-    for(let x = 0; x < runActivities.length; x++) {
-      const activityDate = new Date(runActivities[x]['start_date']);
+    const filteredArray = runActivities.filter(activity =>
+      isSameDate(new Date(activity['start_date']), pastDate)
+    );
 
-      if(isSameDate(activityDate, pastDate)) {
-        // object['name'] = runActivities[x]['name'];
-        object['distance'] = runActivities[x]['distance'] += runActivities[x]['distance'];
-      }
+    let distance = 0;
+    for(let x = 0; x < filteredArray.length; x++) {
+      distance += filteredArray[x]['distance'];
     }
+
+    const object = {
+      date: pastDate,
+      distance
+    };
+
     days.push(object);
   };
   return days;

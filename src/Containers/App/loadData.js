@@ -31,7 +31,7 @@ const loadData = (query) => {
   // const url = `${stravaPath[query]}?after=${date}`;
   const url = `${stravaPath[query]}`;
 
-  if(process.env.NODE_ENV !== 'development') {
+  if(process.env.NODE_ENV === 'development') {
     switch (query) {
       case 'activities':
         return activities;

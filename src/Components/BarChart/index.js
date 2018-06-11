@@ -36,6 +36,8 @@ const BarChart = ({ data }) => {
       {massagedData.map((activity, index) => {
         const itemHeight = activity.height;
         const barYAxis = rectHeight - itemHeight;
+        const month = activity['date'].getMonth() + 1;
+        const day = activity['date'].getDate();
 
         return (
           <Bar
@@ -50,7 +52,7 @@ const BarChart = ({ data }) => {
             base={chartHeight}
             distance={activity.distance}
             day={DAYS_OF_WEEK_SHORT[activity['date'].getDay()]}
-            date={`${activity['date'].getMonth()}/${activity['date'].getDate()}`}
+            date={`${month}/${day}`}
           />
         );
       })}

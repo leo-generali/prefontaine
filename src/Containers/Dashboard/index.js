@@ -15,7 +15,6 @@ export default class extends Component {
 
   updateToggle() {
     const metricDisplayDistance = !this.state.metricDisplayDistance;
-    console.log('clicked!!');
     this.setState({ metricDisplayDistance });
   }
 

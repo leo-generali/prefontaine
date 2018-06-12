@@ -4,8 +4,8 @@ import Chart from './Chart';
 
 import { DAYS_OF_WEEK_SHORT } from '../Graph/constants';
 
-const BarChart = ({ data }) => {
-  const itemWidth = 40;
+const BarChart = ({ data, metricDisplayDistance }) => {
+  const itemWidth = 50;
   const itemMargin = 20;
   const length = data.length;
 
@@ -53,6 +53,7 @@ const BarChart = ({ data }) => {
             distance={activity.distance}
             day={DAYS_OF_WEEK_SHORT[activity['date'].getDay()]}
             date={`${month}/${day}`}
+            metricDisplayDistance={metricDisplayDistance}
           />
         );
       })}

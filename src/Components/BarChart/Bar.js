@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
 
+const unitMultipliers = {
+  mi: 0.000621371,
+  km: 0.001
+};
+
 class Bar extends Component {
   state = {
     displayMileage: false
-  }
+  };
 
   setColor(height) {
     const fill = height ? 'white' : 'black';
     return fill;
   };
 
-  convertDistance(distance) {
-    const unitMultiplier = 0.000621371;
-    const unit = 'm';
+  convertDistance(distance, unit) {
+    const unitMultiplier = unitMultipliers[unit];
     const convertedDistance = distance * unitMultiplier;
     const roundedConvertedDistance = Number(Math.round(convertedDistance+'e2')+'e-2');
-    return roundedConvertedDistance ? `${roundedConvertedDistance}${unit}` : '';
+    return `${roundedConvertedDistance}${unit}`;
   };
 
   render() {
@@ -24,8 +28,13 @@ class Bar extends Component {
       index, x, y,
       height, width,
       rx, ry, base,
-      day, distance, date
+      day, distance, date,
+      metricDisplayDistance
     } = this.props;
+    const distanceInMiles = this.convertDistance(distance, "mi");
+    const distanceInKilometers = this.convertDistance(distance, "km");
+
+    const displayedDistance = metricDisplayDistance ? distanceInKilometers : distanceInMiles;
 
     return (
       <g>
@@ -62,7 +71,7 @@ class Bar extends Component {
           {day}
         </text>
         <text x={x + width/2 } y={base - 22} textAnchor="middle" fill={this.setColor(height)}>
-          {displayMileage ? this.convertDistance(distance) : date}
+          {displayMileage ? displayedDistance : date}
         </text>
       </g>
     );

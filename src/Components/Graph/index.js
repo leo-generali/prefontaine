@@ -6,7 +6,7 @@ import { createArray } from './helpers';
 export default class extends Component {
   render() {
     return (
-      <View runActivities={createArray(this.props.runActivities)} />
+      <View runActivities={createArray(this.props.runActivities)} metricDisplayDistance={this.props.metricDisplayDistance} />
     );
   }
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import BarChart from '../BarChart'
 
-const View = ({ runActivities }) => {
+const View = ({ runActivities, metricDisplayDistance }) => {
   return (
-    <BarChart data={runActivities} />
+    <BarChart data={runActivities} metricDisplayDistance={metricDisplayDistance} />
   );
 }
 
